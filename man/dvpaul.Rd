@@ -3,9 +3,8 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{dvpaul}
 %%  ~~function to do ... ~~
-}
 \description{
-The 'dvpaul' function estimates panel models by incorporating time polynomials to capture the the passage of time. It assigns a 't' value to each observation based on the time passed since the first observation of its respective the panel ID or group. 't2' and 't3' represent the squared and cubed of the 't'. The function then runs a regression with these terms, excluding panel ids or time.
+The 'dvpaul' function estimates panel models by incorporating time polynomials to capture the the passage of time. It assigns a 't' value to each observation based on the time passed since the first observation of its respective the panel ID or group. 't2' and 't3' represent the squared and cubed of the 't'. The function then runs a regression with these terms, excluding panel ids or tim.
 }
 \usage{
 dvpaul(formula, x, id, time)

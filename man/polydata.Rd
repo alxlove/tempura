@@ -3,7 +3,6 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{polydata}
 %%  ~~function to do ... ~~
-}
 \description{
 Adds time polynomials to the data set.
 }
