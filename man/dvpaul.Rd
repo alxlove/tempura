@@ -4,7 +4,7 @@
 \title{dvpaul}
 %%  ~~function to do ... ~~
 \description{
-The 'dvpaul' function estimates panel models by incorporating time polynomials to capture the the passage of time. It assigns a 't' value to each observation based on the time passed since the first observation of its respective the panel ID or group. 't2' and 't3' represent the squared and cubed of the 't'. The function then runs a regression with these terms, excluding panel ids or tim.
+The \code{dvpau} function estimates panel models by incorporating time polynomials to capture the the passage of time. It assigns a \var{t} value to each observation based on the time passed since the first observation of its respective the panel ID or group. \var{t2} and \var{t3} represent the squared and cubed of the \var{t}. The function then runs a regression with these terms, excluding panel ids or tim.
 }
 \usage{
 dvpaul(formula, x, id, time)
@@ -17,7 +17,7 @@ dvpaul(formula, x, id, time)
   \item{time}{A numeric variable indicating the time of observation for each data point within each panel or group.}
 }
 \details{
-The 'dvpaul' function estimates dynamic panel models by incorporating id-specific cubic polynomials to model the passage of time, based on the earliest observation for each id. It produces a cubic polynomial (t_id + t_id^2 + t_id^3) that is added to a linear model along with the main predictors.
+\code{dvpaul()}estimates dynamic panel models by incorporating id-specific cubic polynomials to model the passage of time, based on the earliest observation for each id. It produces a cubic polynomial (t_id + t_id^2 + t_id^3) that is added to a linear model along with the main predictors.
 
 The main advantages of this method is its ability to captures and smooth temporal trends, even in the presence of gaps between observations, and to address autocorrelation within panel data. The approach has been applied both to dichotomous hazard models and for explaining continuous outcomes.
 
