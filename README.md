@@ -45,6 +45,13 @@ model2 <- dvpaul(y ~ x1 + x2 + x3, panel, country, year)
 summary(model2)
 
 ```
+#### Stata Users
+***
+The stata version follows a similar notation:
+
+    . dvgreg y_var x1_var x2_var x3_var, id (id_var) time (time_var)
+    . dvpaul y_var x1_var x2_var x3_var, id (id_var) time (time_var)
+
 
 ## References
 ***
