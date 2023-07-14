@@ -1,5 +1,4 @@
 dvpaul<-function(formula, dataset,idvar,timevar){
-  `%>%` <- magrittr::`%>%`
   XVEC<-labels(terms(formula))
   idvar <- deparse(substitute(idvar))
   timevar <- deparse(substitute(timevar))
@@ -10,6 +9,7 @@ dvpaul<-function(formula, dataset,idvar,timevar){
   polyd<-polydata(dataz,idv,timev)
   fnew<-update(formula, . ~ . +t+t_cubed+t_squared)
   poly_model<-lm(fnew,polyd)
+  summary(poly_model)
   return(poly_model)
 }
 

@@ -2,9 +2,9 @@
 setClass("dvgreg.summary")
 
 # Define function
-dvgreg.summary<-function(object, correlation = FALSE, symbolic.cor = FALSE,
-          ...)
-{
+dvgreg.summary<-function(object){
+  correlation = FALSE
+  symbolic.cor = FALSE
   z <- object
   p <- z$rank
   rdf <- z$df.residual

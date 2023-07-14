@@ -14,7 +14,6 @@ The tempura package is designed to be easy to use and to provide researchers wit
 ***
 You can install the Tempura package from GitHub using the following command:
 
-
 ``` r
 remotes::install_github("machtei/tempura")
 ```
@@ -30,19 +29,23 @@ The tempura package can be used to estimate dynamic panel models as follows:
 library(tempura)
 
 # Load data
-data(panel)
+
+panel_data <-haven::read_dta("https://www.lisdatacenter.org/wp-content/uploads/CWS-stata-2020.dta")
 
 # Estimate dynamic panel model
-model <- dvgreg(y ~ x1 + x2 + x3, panel, country, year)
+
+m1<-dvgreg(rred ~ leftcum + ud, panel_data, idn, year)
 
 # Summarize results
-summary(model)
+
+summary(m1)
 
 # Estimate dynamic panel model with time polynomials
-model2 <- dvpaul(y ~ x1 + x2 + x3, panel, country, year)
+
+m2<-dvpaul(rred ~ leftcum + ud, panel_data, idn, year)
 
 # Summarize results
-summary(model2)
+summary(m2)
 
 ```
 #### Stata Users
@@ -52,17 +55,18 @@ The stata version follows a similar notation:
     . dvgreg y_var x1_var x2_var x3_var, id (id_var) time (time_var)
     . dvpaul y_var x1_var x2_var x3_var, id (id_var) time (time_var)
 
+Please note that after executing the `dvgreg` function, it is important to clear and reset the `tsset` settings before running any program that requires units and time identification. 
 
 ## References
 ***
-* Vernby, K., and Lindgren, K. O. (2009). Estimating dynamic panel models when there are gaps in the dependent variable. Uppsala Universitet, Department of Government Studies in Political Economy and Welfare Working Paper Series, 1.
-Stata.
-* Carter, David B., and Christopher S. Signorino. 2010. "Back to the Future: Modeling Time Dependence in Binary Data." Political Analysis 18 (3): 271-92.
+* [Vernby, K., and Lindgren, K. O. (2009).](https://karevernby.files.wordpress.com/2011/06/dynamicpanels.pdf) Estimating dynamic panel models when there are gaps in the dependent variable. Uppsala Universitet, Department of Government Studies in Political Economy and Welfare Working Paper Series, 1.
+* [Carter, D. B., & Signorino, C. S. (2010).](https://doi.org/10.1093/pan/mpq013) Back to the future: Modeling time dependence in binary data. Political Analysis, 18(3), 271-292.
 
 
 ## Acknowledgements
 ***
-The underlying approach of `dvgreg` for estimating dynamic panel models with DV gaps was developed by Vernby, K., and Lindgren, who also implemented this method in a Stata package of the same name. The `tempura` project was created to make this method available for replication and original work in R. I would like to express our gratitude to Vernby and Lindgren for their valuable contribution. The namesake Stata program is Vernby and Lindgren's original file and is included here with the authors' approval.
+The underlying approach of `dvgreg` for estimating dynamic panel models with DV gaps was developed by Vernby, K., and Lindgren, who also implemented this method in a Stata package of the same name. The `tempura` project was created with the
+aim of making this method available for R users. The namesake Stata program is Vernby and Lindgren's original work and is included here with the authors' approval.
 
 ## Contributing
 ***

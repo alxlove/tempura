@@ -1,13 +1,12 @@
 Package: tempura
 Type: Package
 Title: Tools for Dynamic Panel Models
-Version: 0.1.0
+Version: 1.1.0
 Author: Itay Machtei
 Maintainer: <machtei@unc.edu>
 Description: Implements methods for studying panel data given methodological and practical concerns due to gaps in the dependent variable or autocorrelation. 
-License: gpl-3
-Depends:
-    dplyr,
-    tidyverse
+License: GPL-3
+Imports: dplyr, tidyr, magrittr, haven, methods
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.2.3

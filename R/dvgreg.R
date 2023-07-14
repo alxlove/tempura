@@ -1,5 +1,4 @@
 dvgreg<-function(formula, dataset,idvar,timevar){
-  `%>%` <- magrittr::`%>%`
   XVEC<-labels(terms(formula))
   idvar <- deparse(substitute(idvar))
   timevar <- deparse(substitute(timevar))

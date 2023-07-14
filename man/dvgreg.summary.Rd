@@ -5,8 +5,11 @@
 \description{
 The default method of \code{summary()} for a \kbd{dvgreglm} class object.}
 \usage{
-dvgreg.summary(x)
+dvgreg.summary(object)
 }
+\arguments{
+  \item{object}{An object of class dvgreglm}
+  }
 \seealso{
-\code{dvgreg}, \code{summary}
+\code{\link{dvgreg}, \code{\link{summary}}
 }

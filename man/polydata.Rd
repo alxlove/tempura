@@ -7,43 +7,29 @@
 Adds time polynomials to the data set.
 }
 \usage{
-polydata(x, id, time)
+polydata(dataset,idvar,timevar)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-   \item{data}{A data.frame object containing the variables specified in the formula, including the dependent variable, independent variables, panel identifier, and time variable.}
-  \item{id}{A numeric or character variable indicating the panel ID or group to which each observation belongs.}
-  \item{time}{A numeric variable indicating the time of observation for each data point within each panel or group.}
+   \item{dataset}{A data.frame object containing the variables specified in the formula, including the dependent variable, independent variables, as well as the panel-identifier and time variables.}
+  \item{idvar}{A character or numeric variable identifying the panel or group to which each observation belongs.}
+  \item{timevar}{A numeric variable indicating the time of observation for each data point.}
 }
 \details{
 'polydata' is used mainly by the 'dvpaul' to create the model frame it uses in a linear model. Users interested in exploring more advanced models can add time polynomials to their data using the  polydata this function.
 }
-\value{
-}
-\references{
-}
-\author{
-
-}
-\note{
-
-}
 
 \seealso{
-See; dvpaul
+\code{\link{dvpaul}}
 }
 \examples{
 ##  Load data
 
-library(foreign)
-
-panel <-read.dta("http://dss.princeton.edu/training/Panel101.dta")
+panel_data <-haven::read_dta("https://www.lisdatacenter.org/wp-content/uploads/CWS-stata-2020.dta")
 
 ##Modify data
 
-panel2<-polydata(panel, country, year)
+panel_data2<-polydata(panel_data, idn, year)
 
-{
-  }
 }
 
