@@ -1,4 +1,4 @@
-polydata<-function(dataset,idvar,timevar){
+polydata<-function(idvar,timevar,dataset){
   idvar <- deparse(substitute(idvar))
   timevar <- deparse(substitute(timevar))
   dataset$idt<-dataset[[idvar]]

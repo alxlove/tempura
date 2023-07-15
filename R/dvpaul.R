@@ -1,4 +1,4 @@
-dvpaul<-function(formula, dataset,idvar,timevar){
+dvpaul<-function(formula, idvar,timevar, dataset){
   XVEC<-labels(terms(formula))
   idvar <- deparse(substitute(idvar))
   timevar <- deparse(substitute(timevar))
@@ -6,10 +6,10 @@ dvpaul<-function(formula, dataset,idvar,timevar){
   dataz<-dataset %>% dplyr::select(all_of(c(idvar,timevar,yvar,XVEC)))
   colnames(dataz)<-c("idv","timev",yvar,XVEC)
   dataz<-na.omit(dataz)
-  polyd<-polydata(dataz,idv,timev)
+  polyd<-polydata(idv,timev,dataz)
   fnew<-update(formula, . ~ . +t+t_cubed+t_squared)
   poly_model<-lm(fnew,polyd)
-  summary(poly_model)
+  print(summary(poly_model)$coef)
   return(poly_model)
 }
 

@@ -6,7 +6,7 @@ Author: Itay Machtei
 Maintainer: <machtei@unc.edu>
 Description: Implements methods for studying panel data given methodological and practical concerns due to gaps in the dependent variable or autocorrelation. 
 License: GPL-3
-Imports: dplyr, tidyr, magrittr, haven, methods
+Imports: dplyr, tidyr, magrittr, haven, methods, stats
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3

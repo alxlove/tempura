@@ -1,3 +1,8 @@
+#' @docType function
+#' @aliases dvgreg.summary dvgreg.summaryf
+#' #' @importFrom methods setClass setGeneric setMethod setRefClass
+NULL
+
 # Define class
 setClass("dvgreg.summary")
 
@@ -118,6 +123,7 @@ dvgreg.summary<-function(object){
   ans
 }
 
+
 # Transform  dvgreg.summary into a summary method for dvgreglm
 setMethod("summary", "dvgreglm", function(object, ...) {
   dvgreg.summary(object)
@@ -125,4 +131,3 @@ setMethod("summary", "dvgreglm", function(object, ...) {
 
 # Set dvgreg.summary as the default summary method for dvgreglm.
 setGeneric("summary", function(object, ...) standardGeneric("summary"))
-

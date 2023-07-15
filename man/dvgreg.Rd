@@ -6,13 +6,13 @@
 The \code{dvgreg} function is designed to estimate dynamic panel models where observations are not available for all time periods, resulting in missing values in the dependent variable.
 }
 \usage{
-dvgreg(formula, dataset, idvar, timevar)
+dvgreg(formula, idvar,timevar, dataset)
 }
 \arguments{
   \item{formula}{A simple regression formula (y ~ x1 + x2...); see formula}
-  \item{dataset}{A data.frame object containing the variables specified in the formula, including the dependent variable, independent variables, as well as the panel-identifier and time variables.}
   \item{idvar}{A character or numeric variable identifying the panel or group to which each observation belongs.}
   \item{timevar}{A numeric variable indicating the time of observation for each data point.}
+  \item{dataset}{A data.frame object containing the variables specified in the formula, including the dependent variable, independent variables, as well as the panel-identifier and time variables.}
 }
 \details{
 \code{dvgreg()}estimates dynamic panel models by iterating through different values of ρ and reweighting the dependent and independent variables. It selects the most efficient value of ρ based on the model's \var{R-squared}, which is reported along with other estimates. The reweighted values can be accessed through the model matrix.
@@ -34,10 +34,9 @@ panel_data <-haven::read_dta("https://www.lisdatacenter.org/wp-content/uploads/C
 
 ##Run regression
 
-m<-dvgreg(rred ~ leftcum + ud, panel_data, idn, year)
+m<-dvgreg(rred ~ leftcum + ud, idn, year, panel_data)
 
 ## See results via
 
 summary(m)
 }
-

@@ -20,7 +20,7 @@ remotes::install_github("machtei/tempura")
 #### A note on Stata
 ***
 
-Stata users can also use these tools by downloading the .ado files and placing them in their main ado folder _(C:\/ado)_. The Stata folder contains the original **dvgreg.ado** program developed by Vernby & Lindgren, and a **dvpaul.ado** created as part of the tempura project.
+Stata users can also use these tools by downloading the [.ado files](https://github.com/machtei/tempura/tree/master/Stata) and placing them in their main ado folder _(C:\/ado)_. The Stata folder contains the original **dvgreg.ado** program developed by Vernby & Lindgren, and a **dvpaul.ado** created as part of the tempura project.
 
 ## Usage
 ***
@@ -34,7 +34,7 @@ panel_data <-haven::read_dta("https://www.lisdatacenter.org/wp-content/uploads/C
 
 # Estimate dynamic panel model
 
-m1<-dvgreg(rred ~ leftcum + ud, panel_data, idn, year)
+m1<-dvgreg(rred ~ leftcum + ud, idn, year, panel_data)
 
 # Summarize results
 
@@ -42,7 +42,7 @@ summary(m1)
 
 # Estimate dynamic panel model with time polynomials
 
-m2<-dvpaul(rred ~ leftcum + ud, panel_data, idn, year)
+m2<-dvpaul(rred ~ leftcum + ud, idn, year, panel_data)
 
 # Summarize results
 summary(m2)

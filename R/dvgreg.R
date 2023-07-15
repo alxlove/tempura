@@ -1,4 +1,8 @@
-dvgreg<-function(formula, dataset,idvar,timevar){
+#' @docType function
+#' @aliases dvgreg
+#' @importFrom magrittr %>%
+
+dvgreg<-function(formula, idvar, timevar, dataset){
   XVEC<-labels(terms(formula))
   idvar <- deparse(substitute(idvar))
   timevar <- deparse(substitute(timevar))
@@ -157,7 +161,7 @@ dvgreg<-function(formula, dataset,idvar,timevar){
     rm(m)
 
   }
-  print(summary(model))
+  print(summary(model)$coef)
   cat(paste("********************************************************************************",
             "****************************** Model's Rho value: ******************************",
             paste0("***********************************    ",rho,"    **********************************"),
