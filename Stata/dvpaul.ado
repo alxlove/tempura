@@ -1,8 +1,8 @@
 *machtei@unc.edu
 program define dvpaul
   version 8
-  syntax varlist(min=2 ts) [if] [in], TIME(varname) ID(varname) ///
-	[CLuster(varname) ROBust] 
+  syntax varlist(min=2 ts) [if] [in], TIME(varname) ID(varname) 
+ 
  preserve
   tokenize "varlist"
   local varall "`varlist' `id' `time'"
@@ -16,6 +16,6 @@ program define dvpaul
     bysort `id' (`time'): gen t = `time' - mint
     gen t_squared = t^2
     gen t_cubed = t^3
-  reg `varlist' t t_squared t_cubed `if' `in', `robust' `copt' nocons tsscons
+  reg `varlist' t t_squared t_cubed
 restore
   end
