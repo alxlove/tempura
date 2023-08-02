@@ -1,7 +1,7 @@
 Package: tempura
 Type: Package
 Title: Tools for Dynamic Panel Models
-Version: 1.1.0
+Version: 1.1.1
 Author: Itay Machtei
 Maintainer: <machtei@unc.edu>
 Description: Implements methods for studying panel data given methodological and practical concerns due to gaps in the dependent variable or autocorrelation. 

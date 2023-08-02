@@ -152,11 +152,12 @@ dvgreg<-function(formula, idvar, timevar, dataset){
     subdata$constant<-a
     nx<-colnames(subdata)[4:ncol(subdata)]
     fnew<-as.formula(paste(colnames(subdata)[3],"~","0 +",paste(nx, collapse = " + ")))
-    m<-dvgreglm(lm(fnew,subdata))
+    m<-lm(fnew,subdata)
     if(summary(m)$r.squared>maxr2){
       maxr2<-summary(m)$r.squared
       model<-m
       rho<-a
+      attr(model$terms, "intercept")<-a
     }
     rm(m)
 
