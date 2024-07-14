@@ -160,14 +160,22 @@ dvgreg<-function(formula, idvar, timevar, dataset){
       attr(model$terms, "intercept")<-a
     }
     rm(m)
-
   }
-  print(summary(model)$coef)
-  cat(paste("********************************************************************************",
-            "****************************** Model's Rho value: ******************************",
-            paste0("***********************************    ",rho,"    **********************************"),
-            "********************************************************************************",
-            sep="\n"))
 
+  # Attach the information to the model
+  attr(model, "rho") <- rho
+  attr(model, "coef_summary") <- summary(model)$coef
+  
+  # Set the class of the model
+  class(model) <- c("dvgreg", class(model))
+
+  # Return the model without printing
   return(model)
+}
+
+# Create a print method for dvgreg objects
+print.dvgreg <- function(x, ...) {
+  cat("Coefficient Summary:\n")
+  print(attr(x, "coef_summary"))
+  cat("\nModel's Rho value:", attr(x, "rho"), "\n")
 }
